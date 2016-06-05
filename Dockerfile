@@ -30,7 +30,8 @@ ADD init/ /etc/my_init.d/
 RUN chmod -v +x /etc/service/*/run && chmod -v +x /etc/my_init.d/*.sh
 
 # add nfs-common
-RUN apt install nfs-common
+RUN apt-get update -q && apt-get install nfs-client -qy
+
 
 # set volumes
 VOLUME /config /downloads /incomplete-downloads 
